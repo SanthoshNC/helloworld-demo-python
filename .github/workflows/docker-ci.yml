@@ -6,18 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Clone the code
-         uses: actions/checkout@v4
-
-       - name: Docker Login
-         uses: docker/login-action@v3.4.0
+         uses: actions/checkout@v6
+         
+       - name: Build the image
+         run: docker build -t ${{ vars.DOCKERHUB_USERNAME }}/helloworld-demo-python:v1 .
+         
+       - name: Login to Docker Hub
+         uses: docker/login-action@v3
          with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_TOKEN }}
-
-       - name: Docker Build
-         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/helloworld-python:latest .
-
-       - name: Docker Push
-         run: docker push ${{ secrets.DOCKER_USERNAME }}/helloworld-python:latest
+           username: ${{ vars.DOCKERHUB_USERNAME }}
+           password: ${{ secrets.DOCKERHUB_TOKEN }}
+           
+       - name: Push the image
+         run: docker push ${{ vars.DOCKERHUB_USERNAME }}/helloworld-demo-python:v1
 
         
