@@ -49,3 +49,10 @@ jobs:
          run: |
             kubectl get deployments
             kubectl get service
+            
+       - name: Test service URLs
+         run: |
+           minikube service list
+           minikube service hello-world-service --url
+           echo "------------------opening the service------------------"
+           curl $(minikube service hello-world-service --url)
