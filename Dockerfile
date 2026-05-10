@@ -1,6 +1,6 @@
-FROM python:3.13.3-alpine3.21
+FROM python:3.15.0b1-alpine3.23
 MAINTAINER SanthoshNC
-LABEL description="AZDevOpsDemo"
+LABEL description="Infosectrain Demo"
 RUN mkdir /app
 COPY . /app
 WORKDIR /app
