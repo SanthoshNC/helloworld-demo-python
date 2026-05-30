@@ -5,15 +5,15 @@ jobs:
   docker-build-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone the repo
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
+       - name: Clone the repo
+         uses: actions/checkout@v6
+         with:
+           fetch-depth: 0
 
-      - name: Secret Scanning
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+       - name: Secret Scanning
+         uses: gitleaks/gitleaks-action@v2
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
          
        - name: Lint Dockerfile with Hadolint
          uses: hadolint/hadolint-action@v3.1.0
