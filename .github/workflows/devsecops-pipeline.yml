@@ -51,7 +51,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Docker Build
-      run: docker build -t ${{ vars.DOCKERHUB_USERNAME }}/helloworld-demo-python:latest .
+      run: docker build -t ${{ vars.DOCKERHUB_USERNAME }}/helloworld-demo-python:${{ github.sha }} -t ${{ vars.DOCKERHUB_USERNAME }}/helloworld-demo-python:latest .
 
     - name: Docker Images
       run: docker images
