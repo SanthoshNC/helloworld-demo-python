@@ -5,6 +5,12 @@ on:
       - 'main'
     paths-ignore:
       - '**/README.md'
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write # needed for signing the images with GitHub OIDC Token
+  
 jobs:
   devsecops-pipeline:
     runs-on: ubuntu-latest
