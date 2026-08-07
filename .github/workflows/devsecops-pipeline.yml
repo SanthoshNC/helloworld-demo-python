@@ -101,7 +101,7 @@ jobs:
       run: cosign sign --yes "${{ steps.digest.outputs.digest }}"
       
     - name: Cosign Verify Image
-      run: cosign verify ${{ steps.digest.outputs.digest }}"
+      run: cosign verify "${{ steps.digest.outputs.digest }}"
 
     - name: Docker Container
       run: docker run -itd ${{ vars.DOCKERHUB_USERNAME }}/helloworld-demo-python:latest
