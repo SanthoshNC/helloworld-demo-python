@@ -101,7 +101,7 @@ jobs:
       run: cosign sign --yes "${{ steps.digest.outputs.digest }}"
       
     - name: Cosign Verify Image
-      run: cosign verify --certificate-identity "https://github.com/${{ github.repository }}/.github/workflows/${{ github.workflow_ref }}" --certificate-oidc-issuer "https://token.actions.githubusercontent.com" "${{ steps.digest.outputs.digest }}"
+      run: cosign verify --certificate-identity "https://github.com/${{ github.repository }}/.github/workflows/${{ github.workflow }}@refs/heads/${{ github.ref_name }}" --certificate-oidc-issuer "https://token.actions.githubusercontent.com" "${{ steps.digest.outputs.digest }}"
 
     - name: Docker Container
       run: docker run -itd ${{ vars.DOCKERHUB_USERNAME }}/helloworld-demo-python:latest
