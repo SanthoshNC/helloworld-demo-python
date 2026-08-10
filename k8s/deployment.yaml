@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: hello-world-python
-        image: santhoshnc/helloworld-demo-python:v1
+        image: santhoshnc/helloworld-demo-python:latest
         ports:
         - containerPort: 8080
