@@ -138,6 +138,6 @@ jobs:
     - name: Test service URLs
       run: |
         minikube service list
-        minikube service my-service --url
+        minikube service hello-world-service --url
         echo "---------------- Opening the service -------------"
-        curl $(minikube service my-service --url)
+        curl $(minikube service hello-world-service --url)
